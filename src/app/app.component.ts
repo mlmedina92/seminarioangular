@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {  
   // propiedad title del componente 
-  title = 'Italiano Global - Academia virtual';
+  title: String = 'Italiano Global - Academia virtual';
 }

@@ -1,0 +1,8 @@
+export interface Course{//de cualquier lugar la puedo importar por ponele export
+    name: String,
+    duration: String,
+    price: number,
+    quota: number,  //cupo
+    image: String,
+    offer: Boolean
+}
