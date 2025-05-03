@@ -16,7 +16,7 @@
         <!-- con las directivas generamos html de forma dinamica, es un template de html , no es html puro , los for y if no tienen logica pura son para cuestiones de presentacion y de estilo  -->
          <!-- track es un id  q ayuda a que angular sea mas eficiente -->
         @for (course of courses; track course.name){
-        <tr>
+        <tr [ngClass]="{'offer': course.offer}">
             <td><img [src]="course.image" [alt]="course.name"></td>
             <td>{{ course.name }}</td>
             <td>{{ course.duration }}</td>
