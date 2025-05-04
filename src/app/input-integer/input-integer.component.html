@@ -1,0 +1,10 @@
+<button class="btn btn-primary btn-sm" (click)="downQuantity()">-</button>
+
+    <!-- [click](course) en cada fila le paso el course correspondiente q va recorriendo en el array  para generar evento click -->
+    <input
+             type="number"
+             [min]="0"
+             [(ngModel)]="quantity"
+             (keyup)="onChangeQuantity($event)"    >
+
+    <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>

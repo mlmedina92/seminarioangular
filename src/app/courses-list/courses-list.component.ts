@@ -53,40 +53,7 @@ export class CoursesListComponent {
       quantity: 0,
     },
   ];
-  // creo un evento click donde clicken en boton + quantity aumenta en 1
-  upQuantity(course: Course): void {
-    if (course.quota > course.quantity) {
-      course.quantity++;
-    }
+  maxReached(m:number){
+    alert("llegaste al maximo del stock! ");
   }
-
-  downQuantity(course: Course): void {
-    if (course.quantity > 0) {
-      course.quantity--;
-    }
-  }
-
-  onChangeQuantity(event: Event, course: Course): void {
-    console.log(event); // toda la info del evento
-
-  // casteo para poder acceder al value del input ya que esd e tipo text para operar lo necesito en numero 
-  const input = event.target as HTMLInputElement;
-  const valorIngresado = parseInt(input.value, 10);//10 indica que es numero decimal 
-
-  // chequeo si el valor ingresado es mayor a cero y menor que el stock
-  if (valorIngresado < 0) {
-    // sino, si es menor a cero, asigna cero
-    input.value = '0';//cambia el valor del input en la pantalla si ingreso un numero neg , escribe 0
-    course.quantity = 0;
-  } else if (valorIngresado > course.quota) {
-    // sino, si es mayor al stock, asigna todo el stock
-    input.value = course.quota.toString();
-    course.quantity = course.quota;
-  } else {
-    // si sí, asigna el valor ingresado al value del input
-    course.quantity = valorIngresado;
-  }
-
-  // console.log(event.key); // p saber qué letra apreté (esto solo sirve en eventos tipo keydown/keypress)
-}
 }

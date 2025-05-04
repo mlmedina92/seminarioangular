@@ -15,7 +15,7 @@
     <tbody>
         <!-- en base a una condicion agrego una clase css a un elemento ngClass sirve para manipular clases-->
         <!-- con las directivas generamos html de forma dinamica, es un template de html , no es html puro , los for y if no tienen logica pura son para cuestiones de presentacion y de estilo  -->
-         <!-- track es un id  q ayuda a que angular sea mas eficiente -->
+        <!-- track es un id  q ayuda a que angular sea mas eficiente -->
         @for (course of courses; track course.name){
         <tr [ngClass]="{'offer': course.offer}">
             <td><img width="100" class="img-thumbnail" [src]="course.image" [alt]="course.name"></td>
@@ -30,13 +30,10 @@
             <td><span class="badge text-bg-warning">Sin cupos disponibles</span></td>
             }
             <td>
-                <!-- [click](course) en cada fila le paso el course correspondiente q va recorriendo en el array  para generar evento click -->
-                <button class="btn btn-primary btn-sm" (click)="upQuantity(course)">+</button>
-                <input 
-                        type="number" [min]="0" [max]="course.quota"
-                        [(ngModel)]="course.quantity"
-                        (keyup)="onChangeQuantity($event,course)">
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(course)">-</button></td>
+                <app-input-integer [(quantity)]="course.quantity" [max]="course.quota" (maxReached)="maxReached($event)"></app-input-integer>
+            <!-- los uoutput son los (), los input son los []  -->
+                <!-- Cant:{{course.quantity}} -->
+            </td>
         </tr>
         }@empty{
         <tr>

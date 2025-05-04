@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ItalianoglobalAboutComponent } from './italianoglobal-about/italianoglobal-about.component';
 import { CartComponent } from './cart/cart.component';
 import { ItalianoglobalCursosComponent } from './italianoglobal-cursos/italianoglobal-cursos.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ItalianoglobalCursosComponent } from './italianoglobal-cursos/italianog
     ItalianoglobalAboutComponent,
     CartComponent,
     ItalianoglobalCursosComponent,
+    InputIntegerComponent,
   ],
   imports: [
     BrowserModule,
