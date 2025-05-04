@@ -3,17 +3,26 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoursesListComponent } from './courses-list/courses-list.component';
+import { CoursesListComponent } from './courses-list/courses-list.component'; 
+
+import { FormsModule } from '@angular/forms';
+import { ItalianoglobalAboutComponent } from './italianoglobal-about/italianoglobal-about.component';
+import { CartComponent } from './cart/cart.component';
+import { ItalianoglobalCursosComponent } from './italianoglobal-cursos/italianoglobal-cursos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     // se incluyen los componentes que creo en dicho modulo  
-    CoursesListComponent
+    CoursesListComponent,
+    ItalianoglobalAboutComponent,
+    CartComponent,
+    ItalianoglobalCursosComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())

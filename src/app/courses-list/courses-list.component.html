@@ -9,6 +9,7 @@
             <th>Duración</th>
             <th>Precio</th>
             <th>Stock/cupos</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +18,7 @@
          <!-- track es un id  q ayuda a que angular sea mas eficiente -->
         @for (course of courses; track course.name){
         <tr [ngClass]="{'offer': course.offer}">
-            <td><img [src]="course.image" [alt]="course.name"></td>
+            <td><img width="100" class="img-thumbnail" [src]="course.image" [alt]="course.name"></td>
             <td>{{ course.name }}</td>
             <td>{{ course.duration }}</td>
             <!-- pipe currency , le pone el signo peso , puede configurarse la cantidad de decimales, etc ya que son funciones  a las que se les puede pasar parametros -->
@@ -28,13 +29,19 @@
             @else{
             <td><span class="badge text-bg-warning">Sin cupos disponibles</span></td>
             }
+            <td>
+                <!-- [click](course) en cada fila le paso el course correspondiente q va recorriendo en el array  para generar evento click -->
+                <button class="btn btn-primary btn-sm" (click)="upQuantity(course)">+</button>
+                <input 
+                        type="number" [min]="0" [max]="course.quota"
+                        [(ngModel)]="course.quantity"
+                        (keyup)="onChangeQuantity($event,course)">
+                <button class="btn btn-primary btn-sm" (click)="downQuantity(course)">-</button></td>
         </tr>
         }@empty{
         <tr>
             <td colspan="4">No hay cursos para mostrar</td>
         </tr>
         }
-
-
     </tbody>
 </table>
