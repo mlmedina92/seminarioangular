@@ -31,8 +31,11 @@
             }
             <td>
                 <app-input-integer [(quantity)]="course.quantity" [max]="course.quota" (maxReached)="maxReached($event)"></app-input-integer>
-            <!-- los uoutput son los (), los input son los []  -->
-                <!-- Cant:{{course.quantity}} -->
+              <!-- llamo a addToCart que esta en course-list-component -->
+                
+              <button class="btn btn-outline-success" (click)="addToCart(course)">Comprar</button>
+
+                <!-- los uoutput son los (), los input son los []  -->
             </td>
         </tr>
         }@empty{

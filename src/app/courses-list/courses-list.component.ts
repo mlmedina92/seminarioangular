@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Course } from './Course';
+import { CourseCartService } from '../course-cart.service';
 
 @Component({
   selector: 'app-courses-list',
@@ -53,7 +54,16 @@ export class CoursesListComponent {
       quantity: 0,
     },
   ];
-  maxReached(m:number){
-    alert("llegaste al maximo del stock! ");
+
+  constructor(private cart: CourseCartService) {}
+
+  addToCart(course: Course): void {
+    // llama al this.addToCart de cart-ServiceWorker.ts
+    this.cart.addToCart(course);
+    course.quota -= course.quantity;//descuenta del stock, la cant seleccionada por el us
+    course.quantity=0; //reinicia la cantidad 
+  }
+  maxReached(m: number) {
+    alert('llegaste al maximo del stock! ');
   }
 }
