@@ -60,7 +60,7 @@ export class CoursesListComponent {
   addToCart(course: Course): void {
     // llama al this.addToCart de cart-ServiceWorker.ts
     this.cart.addToCart(course);
-    course.quota -= course.quantity;//descuenta del stock, la cant seleccionada por el us
+    course.quota -= course.quantity;//descuenta del stock, la cant seleccionada por el us 
     course.quantity=0; //reinicia la cantidad 
   }
   maxReached(m: number) {

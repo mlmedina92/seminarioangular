@@ -9,6 +9,8 @@ import { Course } from '../courses-list/Course';
 })
 export class InputIntegerComponent {
   @Input() quantity!: number;
+
+  // el hijo recibe la info del papa con un input ????
   @Input() max!: number;
 
   @Output()
@@ -16,6 +18,7 @@ export class InputIntegerComponent {
 
   // evento que emito cada vez q llegue al limite de stok
   @Output()
+  // el hijo emite el evento maxReached , el papa course-list-component.ts lo captura ??????
   maxReached:EventEmitter<number> = new EventEmitter<number>();
 
   // creo un evento click donde clicken en boton + quantity aumenta en 1
