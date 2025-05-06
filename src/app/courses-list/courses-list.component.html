@@ -21,7 +21,7 @@
         <!-- ngClass aplica la clase CSS offer si course.offer es verdadero, para resaltar promociones, por ejemplo. -->
         <tr [ngClass]="{'offer': course.offer}">
             <!-- src y alt son data bindings para mostrar la imagen y el nombre del curso.Significa que esos valores vienen desde el archivo TypeScript (.ts) al archivo HTML, y se actualizan automáticamente si cambian en el componente.-->
-            <td><img width="100" class="img-thumbnail" [src]="course.image" [alt]="course.name"></td>
+            <td><img width="100" class="img-thumbnail" loading="lazy" [src]="course.image" [alt]="course.name"></td>
             <td>{{ course.name }}</td>
             <td>{{ course.duration }}</td>
             <!-- pipe currency , le pone el signo peso , puede configurarse la cantidad de decimales, etc ya que son funciones  a las que se les puede pasar parametros -->
